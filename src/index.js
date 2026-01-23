@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import pool from "./config/db.js";
 
 dotenv.config();
 
@@ -13,6 +14,14 @@ app.use(express.json());
 app.use(cors());
 
 // ROUTES
+
+// postgres testing route
+app.get("/", async (req, res) => {
+	const result = await pool.query("SELECT current_database()");
+	console.log(result);
+	const dbName = result.rows[0].current_database;
+	res.send(`The database name is: ${dbName}`);
+});
 
 // ERROR HANDLING MIDDLEWARE
 
