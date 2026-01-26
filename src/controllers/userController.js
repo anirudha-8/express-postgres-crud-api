@@ -1,3 +1,6 @@
+// @desc 	Get All User
+// @route 	GET /api/users
+// @access 	Public
 const getAllUser = async (req, res) => {
 	try {
 	} catch (error) {
@@ -9,6 +12,9 @@ const getAllUser = async (req, res) => {
 	}
 };
 
+// @desc 	Get User By Id
+// @route 	GET /api/user/:id
+// @access 	Public
 const getUserById = async (req, res) => {
 	try {
 	} catch (error) {
@@ -20,6 +26,9 @@ const getUserById = async (req, res) => {
 	}
 };
 
+// @desc 	Create User
+// @route 	POST /api/create
+// @access 	Public
 const createUser = async (req, res) => {
 	try {
 	} catch (error) {
@@ -30,7 +39,9 @@ const createUser = async (req, res) => {
 		});
 	}
 };
-
+// @desc 	Update User
+// @route 	PUT /api/user/:id
+// @access 	Public
 const updateUser = async (req, res) => {
 	try {
 	} catch (error) {
@@ -41,7 +52,9 @@ const updateUser = async (req, res) => {
 		});
 	}
 };
-
+// @desc 	Delete User
+// @route 	DELETE /api/user/:id
+// @access 	Public
 const deleteUser = async (req, res) => {
 	try {
 	} catch (error) {
