@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import pool from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
+import errorHandler from "./middlewares/errorHandler.js";
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.get("/", async (req, res) => {
 });
 
 // ERROR HANDLING MIDDLEWARE
+app.use(errorHandler);
 
 // RUNNING SERVER
 app.listen(PORT, () => {
