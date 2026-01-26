@@ -1,7 +1,7 @@
 // @desc 	Get All User
 // @route 	GET /api/users
 // @access 	Public
-const getAllUser = async (req, res) => {
+export const getAllUser = async (req, res) => {
 	try {
 	} catch (error) {
 		console.error(`Error: ${error.message}`);
@@ -15,7 +15,7 @@ const getAllUser = async (req, res) => {
 // @desc 	Get User By Id
 // @route 	GET /api/user/:id
 // @access 	Public
-const getUserById = async (req, res) => {
+export const getUserById = async (req, res) => {
 	try {
 	} catch (error) {
 		console.error(`Error: ${error.message}`);
@@ -29,7 +29,7 @@ const getUserById = async (req, res) => {
 // @desc 	Create User
 // @route 	POST /api/create
 // @access 	Public
-const createUser = async (req, res) => {
+export const createUser = async (req, res) => {
 	try {
 	} catch (error) {
 		console.error(`Error: ${error.message}`);
@@ -42,7 +42,7 @@ const createUser = async (req, res) => {
 // @desc 	Update User
 // @route 	PUT /api/user/:id
 // @access 	Public
-const updateUser = async (req, res) => {
+export const updateUser = async (req, res) => {
 	try {
 	} catch (error) {
 		console.error(`Error: ${error.message}`);
@@ -55,7 +55,7 @@ const updateUser = async (req, res) => {
 // @desc 	Delete User
 // @route 	DELETE /api/user/:id
 // @access 	Public
-const deleteUser = async (req, res) => {
+export const deleteUser = async (req, res) => {
 	try {
 	} catch (error) {
 		console.error(`Error: ${error.message}`);
