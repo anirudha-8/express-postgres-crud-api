@@ -1,3 +1,9 @@
+/**
+ * User controller module for handling HTTP requests related to users.
+ * This module provides route handlers that interact with the user model services
+ * to perform CRUD operations. It includes error handling and proper HTTP response formatting.
+ */
+
 import {
 	createUserService,
 	deleteUserService,
@@ -6,6 +12,14 @@ import {
 	updateUserService,
 } from "../models/userModel";
 
+/**
+ * Standardized response helper function.
+ * Sends a JSON response with status, message, and optional data.
+ * @param {Object} res - Express response object.
+ * @param {number} status - HTTP status code.
+ * @param {string} message - Response message.
+ * @param {any} data - Optional data to include in the response.
+ */
 const handleResponse = (res, status, message, data = null) => {
 	res.status(status).json({
 		status,
@@ -14,6 +28,12 @@ const handleResponse = (res, status, message, data = null) => {
 	});
 };
 
+/**
+ * Retrieves all users.
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @param {Function} next - Express next middleware function.
+ */
 export const getAllUsers = async (req, res, next) => {
 	try {
 		const users = await getAllUsersService();
@@ -23,6 +43,12 @@ export const getAllUsers = async (req, res, next) => {
 	}
 };
 
+/**
+ * Retrieves a single user by ID.
+ * @param {Object} req - Express request object, expects id in params.
+ * @param {Object} res - Express response object.
+ * @param {Function} next - Express next middleware function.
+ */
 export const getUserById = async (req, res, next) => {
 	try {
 		const user = await getUserByIdService(req.params.id);
@@ -33,6 +59,12 @@ export const getUserById = async (req, res, next) => {
 	}
 };
 
+/**
+ * Creates a new user.
+ * @param {Object} req - Express request object, expects name and email in body.
+ * @param {Object} res - Express response object.
+ * @param {Function} next - Express next middleware function.
+ */
 export const createUser = async (req, res, next) => {
 	const { name, email } = req.body;
 	try {
@@ -43,6 +75,12 @@ export const createUser = async (req, res, next) => {
 	}
 };
 
+/**
+ * Updates an existing user.
+ * @param {Object} req - Express request object, expects id in params and name/email in body.
+ * @param {Object} res - Express response object.
+ * @param {Function} next - Express next middleware function.
+ */
 export const updateUser = async (req, res, next) => {
 	const { name, email } = req.body;
 	try {
@@ -54,6 +92,12 @@ export const updateUser = async (req, res, next) => {
 	}
 };
 
+/**
+ * Deletes a user by ID.
+ * @param {Object} req - Express request object, expects id in params.
+ * @param {Object} res - Express response object.
+ * @param {Function} next - Express next middleware function.
+ */
 export const deleteUser = async (req, res, next) => {
 	try {
 		const deletedUser = await deleteUserService(req.params.id);
