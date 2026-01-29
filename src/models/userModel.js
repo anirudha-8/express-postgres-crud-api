@@ -60,7 +60,7 @@ export const updateUserService = async (id, name, email) => {
  * @returns {Promise<Object|null} A promise that resolves to the deleted user object or null if not found.
  */
 export const deleteUserService = async (id) => {
-	const result = await pool.query("DELETE FROM user WHERE id=$1 RETURNING *", [
+	const result = await pool.query("DELETE FROM users WHERE id=$1 RETURNING *", [
 		id,
 	]);
 	return result.rows[0];
