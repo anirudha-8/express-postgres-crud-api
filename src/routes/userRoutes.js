@@ -1,27 +1,43 @@
+/**
+ * User routes module for handling user-related API endpoints.
+ * This module defines RESTful routes for CRUD operations on users,
+ * delegating to the appropriate controller functions.
+ */
+
 import express from "express";
 import {
 	createUser,
 	deleteUser,
-	getAllUser,
+	getAllUsers,
 	getUserById,
 	updateUser,
-} from "../controllers/userController";
+} from "../controllers/userController.js";
 
 const router = express.Router();
 
-// @desc - get all users
-router.get("/users", getAllUser);
+// @route   GET /api/users
+// @desc    Get all users
+// @access  Public
+router.get("/users", getAllUsers);
 
-// @desc - get single by id
-router.get("/user/:id", getUserById);
+// @route   GET /api/users/:id
+// @desc    Get a single user by ID
+// @access  Public
+router.get("/users/:id", getUserById);
 
-// @desc - create user
-router.post("/create", createUser);
+// @route   POST /api/users
+// @desc    Create a new user
+// @access  Public
+router.post("/users", createUser);
 
-// @desc - update user
-router.put("/update", updateUser);
+// @route   PUT /api/users/:id
+// @desc    Update an existing user
+// @access  Public
+router.put("/users/:id", updateUser);
 
-// @desc - delete user
-router.delete("/delete", deleteUser);
+// @route   DELETE /api/users/:id
+// @desc    Delete a user by ID
+// @access  Public
+router.delete("/users/:id", deleteUser);
 
 export default router;
