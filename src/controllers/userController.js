@@ -10,7 +10,7 @@ import {
 	getAllUsersService,
 	getUserByIdService,
 	updateUserService,
-} from "../models/userModel";
+} from "../models/userModel.js";
 
 /**
  * Standardized response helper function.
