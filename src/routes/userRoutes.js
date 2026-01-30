@@ -12,6 +12,7 @@ import {
 	getUserById,
 	updateUser,
 } from "../controllers/userController.js";
+import validateUser from "../middlewares/inputValidator.js";
 
 const router = express.Router();
 
@@ -23,21 +24,25 @@ router.get("/users", getAllUsers);
 // @route   GET /api/users/:id
 // @desc    Get a single user by ID
 // @access  Public
+// Note: :id is a route parameter expected to be a valid user ID (e.g., integer)
 router.get("/users/:id", getUserById);
 
 // @route   POST /api/users
 // @desc    Create a new user
 // @access  Public
-router.post("/users", createUser);
+// Note: Uses validateUser middleware to check request body before calling createUser
+router.post("/users", validateUser, createUser);
 
 // @route   PUT /api/users/:id
 // @desc    Update an existing user
 // @access  Public
-router.put("/users/:id", updateUser);
+// Note: :id is a route parameter; validateUser middleware ensures valid input
+router.put("/users/:id", validateUser, updateUser);
 
 // @route   DELETE /api/users/:id
 // @desc    Delete a user by ID
 // @access  Public
+// Note: :id is a route parameter for the user to delete
 router.delete("/users/:id", deleteUser);
 
 export default router;
