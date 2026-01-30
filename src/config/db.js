@@ -16,4 +16,8 @@ pool.on("connect", () => {
 	console.log("Connection pool established with database!");
 });
 
+pool.on("error", (err) => {
+	console.error("Database connection error:", err.message);
+});
+
 export default pool;
