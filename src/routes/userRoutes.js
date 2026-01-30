@@ -31,18 +31,18 @@ router.get("/users/:id", getUserById);
 // @desc    Create a new user
 // @access  Public
 // Note: Uses validateUser middleware to check request body before calling createUser
-router.post("/users", validateUser, createUser);
+router.post("/user", validateUser, createUser);
 
 // @route   PUT /api/users/:id
 // @desc    Update an existing user
 // @access  Public
 // Note: :id is a route parameter; validateUser middleware ensures valid input
-router.put("/users/:id", validateUser, updateUser);
+router.put("/user/:id", validateUser, updateUser);
 
 // @route   DELETE /api/users/:id
 // @desc    Delete a user by ID
 // @access  Public
 // Note: :id is a route parameter for the user to delete
-router.delete("/users/:id", deleteUser);
+router.delete("/user/:id", deleteUser);
 
 export default router;
